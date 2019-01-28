@@ -12,4 +12,5 @@
  * @since           : 25/01/2019
  ***************************************************************************/
 var Access=require('../Utility/utility')
-Access.ReadTime();
+var res=Access.ReadTime();
+console.log(res);

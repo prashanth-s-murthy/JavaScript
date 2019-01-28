@@ -13,4 +13,7 @@
  * @since           : 25/01/2019
  ***************************************************************************/
 var Access = require('../Utility/utility')
-Access.twoD();
+var readline =require('readline-sync');
+var row = readline.question("enter the number of rows");
+var col = readline.question("enter the number of columns");
+Access.twoD(row,col);
