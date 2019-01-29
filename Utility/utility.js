@@ -611,47 +611,39 @@ module.exports = {
              * Condition to check if the input is only characters or numbers
              */
             if (format.test(word1) && format.test(word2)) {
-              /**
-               * Condition to check if the length of the first word is equal to the second word.
-               * If the condition passes, it means they can not be permutations of each other. Store false in the result.
-               */
-              if (word1.length !== word2.length) {
-                result = false;
-              }
-              /**
-               * Split the string into an array,
-               * Sort the array alphabetically,
-               * Join the elements of an array into a string, and store the sorted string in a variable
-               */
-              var sortWord1 = word1
-                .toString()
-                .split("")
-                .sort()
-                .join("");
-              var sortWord2 = word2
-                .toString()
-                .split("")
-                .sort()
-                .join("");
-              /**
-               * If sortWord1 string is equal to sortWord2, stores true in result, else stores false in result.
-               */
-              result = sortWord1 === sortWord2;
-              /**
-               * condition to check the result is true and to print if the given words are aragrams or not.
-               */
-              if (result == true) {
-                return true;
-              } else {
-                return false;
-              }
+                /**
+                 * Condition to check if the length of the first word is equal to the second word.
+                 * If the condition passes, it means they can not be permutations of each other. Store false in the result.
+                 */
+                if (word1.length !== word2.length) {
+                    result = false;
+                }
+                /**
+                 * Split the string into an array,
+                 * Sort the array alphabetically,
+                 * Join the elements of an array into a string, and store the sorted string in a variable
+                 */
+                var sortWord1 = word1.toString().split("").sort().join("");
+                var sortWord2 = word2.toString().split("").sort().join("");
+                /**
+                 * If sortWord1 string is equal to sortWord2, stores true in result, else stores false in result.
+                 */
+                result = sortWord1 === sortWord2;
+                /**
+                 * condition to check the result is true and to print if the given words are aragrams or not.
+                 */
+                if (result == true) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-              console.log("Enter only letters or alphabets");
+                console.log("Enter only letters or alphabets");
             }
-          } catch (error) {
+        } catch (error) {
             console.log(error.message);
-          }
-        },
+        }
+    },
 
     /*********************************************Prime number*************************************************
      * @Purpose     :To find the prime number betwen 0 tp 1000.
@@ -697,22 +689,19 @@ module.exports = {
 
 
 
-    isPrime(num)
-    {
+    isPrime(num) {
         try {
-            if(num ==0||num==1)
-            {
+            if (num == 0 || num == 1) {
                 return false;
             }
-            for(let i=2;i<num;i++)
-            {
-                if(num%i==0)
-                return false;
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0)
+                    return false;
             }
             return true;
         } catch (err) {
             console.log(err.message);
-            
+
         }
 
     },
@@ -721,52 +710,52 @@ module.exports = {
         var str = "";
         num1 = num1 + "";
         for (let i = 0; i < num1.length; i++) {
-          str = num1.charAt(i) + str;
+            str = num1.charAt(i) + str;
         }
         if (str == num1) {
-          return true;
+            return true;
         }
         return false;
-      },
-    
-      isAnagramPalindrome() {
+    },
+
+    isAnagramPalindrome() {
         try {
-          console.log(
-            "Prime numbers in the range 0 to 1000 which are anagram and palindrome: "
-          ); {
-            var arr = [];
-            /**
-             * Loop from 0 till 1000 and chwck if the number is prime.
-             * If the number is prime, push it to the array.
-             */
-            for (let i = 0; i < 1000; i++) {
-              if (this.isPrime(i)) {
-                arr.push(i);
-              }
-            }
-            /**
-             * Loop continuously from 1st element and second element, second element to third element and so on..
-             * Invoke isAnagram and isPalindrome function and pass the 2 elements.
-             * Print all the elements which are prime, anagram and palindrome.
-             */
-            for (let i = 0; i < arr.length; i++) {
-              for (let j = i + 1; j < arr.length; j++) {
-                if (this.isAnagram(arr[i], arr[j])) {
-                  console.log(arr[i] + " and " + arr[j] + " are anagram");
-                  if (this.isNumberPalindrome(arr[i])) {
-                    console.log(arr[i] + " is palindrome");
-                  }
-                  if (this.isNumberPalindrome(arr[j])) {
-                    console.log(arr[j] + " is palindrome");
-                  }
+            console.log(
+                "Prime numbers in the range 0 to 1000 which are anagram and palindrome: "
+            ); {
+                var arr = [];
+                /**
+                 * Loop from 0 till 1000 and chwck if the number is prime.
+                 * If the number is prime, push it to the array.
+                 */
+                for (let i = 0; i < 1000; i++) {
+                    if (this.isPrime(i)) {
+                        arr.push(i);
+                    }
                 }
-              }
+                /**
+                 * Loop continuously from 1st element and second element, second element to third element and so on..
+                 * Invoke isAnagram and isPalindrome function and pass the 2 elements.
+                 * Print all the elements which are prime, anagram and palindrome.
+                 */
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = i + 1; j < arr.length; j++) {
+                        if (this.isAnagram(arr[i], arr[j])) {
+                            console.log(arr[i] + " and " + arr[j] + " are anagram");
+                            if (this.isNumberPalindrome(arr[i])) {
+                                console.log(arr[i] + " is palindrome");
+                            }
+                            if (this.isNumberPalindrome(arr[j])) {
+                                console.log(arr[j] + " is palindrome");
+                            }
+                        }
+                    }
+                }
             }
-          }
         } catch (error) {
-          console.log(error.message);
+            console.log(error.message);
         }
-      },
+    },
     /***************************************************************************************************
      * 
      * @Purpose     :
@@ -781,51 +770,71 @@ module.exports = {
      * 
      */
     /**************************** binarySearch method for integer *************************************/
-    binarySearch(arr,x)
-    {
-        try{
-            var first=0;
-            var last=0;
-
-            while(first<=last)
-            {
-                var mid=Math.floor((first/last)/2);
-                if(Number(arr[mid]===x))
-                {
-                return true;
-                }
-                else if(Number(arr[mid]<x)){
-                    fisrt=mid+1;
-                }
-                else if(Number(arr[mid]>x))
-                {
-                    last=mid-1;
-                }else{return false;}
+    binarySearch(arr, x) {
+        try {
+            var first = 0;
+            var last = arr.length - 1;
+            /**
+             * iterate until first is not greater or equal to last
+             */
+            while (first <= last) {
+                /**
+                 * find the middle index
+                 */
+                var mid = Math.floor((first + last) / 2);
+                /**
+                 * if element is present at mid, return True
+                 */
+                if (Number(arr[mid] === x)) return true;
+        /**
+         * searching the value in array
+         */ else if (Number(arr[mid]) < x) first = mid + 1;
+                else last = mid - 1;
             }
-        }catch(err)
-        {
+            return false;
+        } catch (err) {
             console.log(err.message);
-            
+
         }
 
     },
+    /****************************************binary search for string*********************************
+     * 
+     * 
+     * 
+     */
+    binarySearchString(arr, search) {
+        try {
+            arr.sort();
+            console.log(arr);
 
-
-    /******************************************insertionSort method for integer************************ */
-    insertionSort() {
-        var ar = [];
-        ar = this.inputArr();
-        var n = ar.length;
-        for (let j = 1; j < n; j++) {
-            var key = ar[j];
-            var i = j - 1;
-            while ((i > -1) && (Number(ar[i]) > key)) {
-                ar[i + 1] = ar[i];
-                i--;
+            var first = 0;
+            var last = arr.length - 1;
+            /**
+            * Iterate while start not meets stop
+            */
+            while (first <= last) {
+                var mid = Math.floor((first + last) / 2);
+                /* If element is present at mid, return True
+                */
+                if ((arr[mid]) === search)
+                    /**
+                   * Else look in left or right half accordingly
+                   */
+                    return true;
+                else if ((arr[mid]) < search)
+                    first = mid + 1;
+                else
+                    last = mid - 1;
             }
-            ar[i + 1] = key;
+            return false;
+
+
+
+        } catch (error) {
+            console.log(error.message);
+
         }
-        console.log(ar);
     },
 
 
@@ -1044,9 +1053,13 @@ module.exports = {
     },
 
     /*****************************************monthlyPayment*************************************** 
-     * @Purpose     :
-     * @description :
-     * @function    :
+     * @Purpose     : To calculate ​ monthlyPayment.
+     * @description : Write a Util Static Function to calculate ​ monthlyPayment that reads in three
+                      command-line arguments P, Y, and R and calculates the monthly payments you
+                      would have to make over Y years to pay off a P principal loan amount at R per cent
+                      interest compounded monthly.
+     * @function    : monthlyPayment function takes three command line argument and it calculates the 
+                      monthly payment.
     */
 
 
@@ -1070,7 +1083,12 @@ module.exports = {
             console.log(err.message);
         }
     },
-    /***************************************insertion sort************************************ */
+    /***************************************insertion sort************************************ 
+     * @Purpose     : To sort the string using insertion sort method.
+     * @description : Reads in strings from standard input and prints them in sorted order.
+                      Uses insertion sort.
+     * @function    : insertion sort function to sort the string.
+    */
 
 
     insertionSort() {
@@ -1094,9 +1112,184 @@ module.exports = {
 
     },
 
-    /************************************************************************************************** */
-    
-    
+    /*********************************************​ dayOfWeek*******************************************
+     * @Purpose     :To print the day of week that falls on.
+     * @description :To the Util Class add ​ dayOfWeek static function that takes a date as input and
+                     prints the day of the week that date falls on. Your program should take three
+                     command-line arguments: m (month), d (day), and y (year). For m use 1 for January,
+                     2 for February, and so forth. For output print 0 for Sunday, 1 for Monday, 2 for
+                     Tuesday, and so forth.   
+     * @function    :takes date, month, year from command line argument and by using the formula 
+                     it calculates the day.
+     */
+
+    dayOfWeek() {
+        try {
+            var date = Number(process.argv[2]);
+            var month = Number(process.argv[3]);
+            var year = Number(process.argv[4]);
+            /**
+            * condition to check date, month,year should be number and should lie range between
+            */
+            if (!isNaN(date, month, year) && ((date > 0 && date < 32) && (month > 0 && month < 13) && (year > 999 && year < 10000))) {
+                var y0 = year - Math.floor((14 - month) / 12);
+                var x = y0 + Math.floor(y0 / 4) - Math.floor(y0 / 100) + Math.floor(y0 / 400);
+                var m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
+                var d0 = (date + x + Math.floor((31 * m0) / 12)) % 7;
+                /**
+                 * 
+                 * based on the d0 corresponding output is printed.
+                 */
+                switch (d0) {
+                    case 0:
+                        return "Sunday";
+                    case 1:
+                        return "Monday";
+                    case 2:
+                        return "Tuesday";
+                    case 3:
+                        return "Wednesday";
+                    case 4:
+                        return "Thursday";
+                    case 5:
+                        return "Friday";
+                    case 6:
+                        return "Saturday";
+                }
+            } else {
+                return "Please enter the valid date month year";
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
+    /*************************************************Square root*****************************************
+     *@Purpose      : function ​ sqrt t ​ o compute the square root of a nonnegative number.
+     *@description  : Write a static function ​ sqrt t ​ o compute the square root of a nonnegative number c
+                      given in the input using Newton's method:
+     *@function     : findSquareRoot takes input from user and calculates the square root of non negative 
+                      number using Newton method.
+    */
+
+    findSquareRoot() {
+        try {
+            /**
+             * taking input from user.
+             * using newtons method.
+             */
+            var c = readline.question("enter the number greater than 0 : ");
+            var temp = c;
+            var epsilon = 1e-15;
+            /**
+             * condition checks the number is greater than zero and is number.
+             */
+            if (c > 0 && !isNaN(c)) {
+                while (Math.abs(temp - c / temp) > epsilon * temp) {
+                    temp = (c / temp + temp) / 2;
+                }
+                console.log("square root of " + c + " is " + temp);
+            }
+            else {
+                console.log("enter the number greater then 0");
+            }
+        } catch (err) {
+            console.log(err.message);
+
+        }
+    },
+
+    /**************************Binary Search the Word from Word Lis**************************************
+     * @purpose     :
+     * @description : Desc -> Read in a list of words from File. Then prompt the user to enter a word to
+                      search the list. The program reports if the search word is found in the list.
+     * @function    : search word takes value to be searched in the array if the value is found it returns 
+                      true or false.
+     * 
+    */
+    searchWord() {
+        arr = [];
+        /**
+         * taking the input value to be searched in the array.
+         */
+        var search = readline.question("enter the word to search: ");
+        const fs = require('fs')
+        /**
+         * readFile takes the file name.
+         * if the file exist then it returns the data else throws error.
+         */
+        fs.readFile('input.txt', (err, data) => {
+            if (err) throw err;
+            arr = data.toString().split(",");
+            console.log(this.binarySearchString(arr, search));
+        })
+    },
+    /*****************************************MergeSort******************************************* 
+     * 
+     * 
+     * 
+    */
 
 
+
+    /************************************* toBinaryConversion************************************* 
+     * @purpose     : To convert the given number to binary format.
+     * @description : Write a static function ​ toBinary that outputs the binary (base 2) representation of
+                      the decimal number typed as the input. It is based on decomposing the number into
+                      a sum of powers of 2.
+     * @function    : toBinaryConversion takes the user input and the input is converted to binary format. 
+    */
+
+    toBinaryConversion() {
+        try {
+            /**
+             * taking input from user.
+             */
+            var num = readline.question("enter the number:");
+            var s = "";
+            /**
+             * looping over the number until the reminder becomes 1 or greater than 1.
+             */
+            while (num >= 1) {
+                var formula = Math.floor(num % 2);
+                s = formula + s;
+                num = num / 2;
+            }
+            console.log("binary form of number is = " + s);
+
+        } catch (err) {
+            console.log(err.message);
+
+        }
+    },
+    /********************************************vendingMachine()************************************ 
+    *@purpose       : to calculate the minimum number of Notes as well as the Notes to be 
+                      returned by the Vending Machine as a Change.
+    *@description   : here is 1, 2, 5, 10, 50, 100, 500 and 1000 Rs Notes which can be
+                      returned by Vending Machine. Write a Program to calculate the minimum number
+                      of Notes as well as the Notes to be returned by the Vending Machine as a
+                      Change
+    *@function      : vendingMachine takes the amount as input and calculates the number of notes.
+    */
+    vendingMachine() {
+        try {
+            var amount = readline.question("enter the amount: ");
+            var arr = [1000, 500, 100, 50, 5, 2, 1];
+            var notes = 0;
+
+            for (i = 0; i < arr.length; i++) {
+                if (amount / arr[i] >= 1) {
+                    var c = Math.floor(amount / arr[i]);
+                    notes = notes + c;
+                    console.log(arr[i] + " notes are: " + c);
+                    amount = amount % arr[i];
+                }
+            }
+            console.log("total number of nodes :" + notes);
+        } catch (err) {
+            console.log(err.message);
+
+
+        }
+    },
 }

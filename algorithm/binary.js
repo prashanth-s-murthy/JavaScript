@@ -8,7 +8,10 @@ try{
         arr[i]=read.question("enter the array element: ");
     }
     var x=read.question("enter the element to search");
-    console.log(Access.binarySearch(arr,x));
+    var res=Access.binarySearch(arr,x);
+    var ress=Access.binarySearchString(arr,x);
+    console.log(res);
+    console.log(ress);
 }catch(err)
 {
     console.log(err.message);
