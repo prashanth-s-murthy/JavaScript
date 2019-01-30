@@ -1,2 +1,4 @@
-var Access = require('../Utility/utility')
-Access.mergeSort();
+var access = require('../Utility/utility')
+var arr=access.inputArr();
+access.mergeSort(arr);
+console.log(arr);

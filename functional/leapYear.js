@@ -1,17 +1,18 @@
 /**************************************************************************
- * Execution       : Default node             cmd> node Harmonic.js
+ * Execution       : Default node             cmd> node leapYear.js
  * Purpose         : To replace String Template “Hello <<UserName>>, How are you?” with proper username
  * 
  * @description
  * 
- * @file            : Harmonic.js
- * @overview        : Prints the Nth harmonic number: 1/1 + 1/2 + ... + 1/N.
+ * @file            : leapYear.js
+ * @overview        : Declaring a function and accepting the userinput and determining whether
+ *                    the given number is leap year or not
  * @module          : read-line modules are installed
  * @author          : PRASHANTH S   <prashanth.murthy007@gmail.com>
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var Access=require('../Utility/utility')
+var access=require('../Utility/utility')
 var read=require('readline-sync');
-var num=read.question("enter the num: ");
-Access.HarmonicFunc(num);
+var year=read.question("enter the year: ");
+access.isLeapYear(year);

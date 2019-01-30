@@ -1,4 +1,4 @@
-var Access=require('../Utility/utility')
+var access=require('../Utility/utility')
 var read=require('readline-sync');
 try{
     var arr=[];
@@ -7,7 +7,7 @@ try{
     {
         arr[i]=read.question("enter the array element: ");
     }
-    Access.BubbleSort(arr);
+    access.BubbleSortInt(arr);
 }catch(err)
 {
     console.log(err.message);

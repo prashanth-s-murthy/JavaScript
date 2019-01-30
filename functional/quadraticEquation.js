@@ -1,10 +1,10 @@
 /**************************************************************************
- * Execution       : Default node             cmd> node Quadratic.js
+ * Execution       : Default node             cmd> node quadraticEquation.js
  * Purpose         : To measure the elapsed time between start and end .Print the elapsed time.
  * 
  * @description
  * 
- * @file            : Quadratic.js
+ * @file            : quadraticEquation.js
  * @overview        : Find the roots of the equation a*x*x + b*x + c.Since the equation is x*x
                       there are 2 roots. The 2 roots of the equation can be found using a formula
                       delta = b*b - 4*a*c
@@ -15,6 +15,5 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
-var Access=require('../Utility/utility')
-
-Access.Quadratic();
+var access=require('../Utility/utility')
+access.quadraticEquation();

@@ -1,2 +1,2 @@
-var Access = require('../Utility/utility')
-Access.searchWord();
+var access = require('../Utility/utility')
+access.searchWord();

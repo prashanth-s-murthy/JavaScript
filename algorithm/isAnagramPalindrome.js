@@ -1,2 +1,2 @@
-var Access=require('../Utility/utility')
-Access.isAnagramPalindrome();
+var access=require('../Utility/utility')
+access.isAnagramPalindrome();

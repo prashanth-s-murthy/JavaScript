@@ -1,2 +1,2 @@
-var Access = require('../Utility/utility')
-Access.toBinaryConversion();
+var access = require('../Utility/utility')
+access.toBinaryConversion();

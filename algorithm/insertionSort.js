@@ -1,2 +1,2 @@
-var Access=require('../Utility/utility')
-Access.insertionSort();
+var access=require('../Utility/utility')
+access.insertionSort();

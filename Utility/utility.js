@@ -38,7 +38,7 @@ module.exports = {
     *@function    :String replace function takes the user input and replaces.
     * 
     */
-    StringReplace(username) {
+    stringReplace(username) {
         try {
             /**
              *  specify the format in which user has to provid input.
@@ -56,7 +56,7 @@ module.exports = {
                 console.log(output);
             }
             else {
-                console.log("name should contains  3 or more character and should not begin with number");
+                console.log("name should contains  3 or more character and should not begins with number");
             }
         }
         catch (err) {
@@ -70,7 +70,7 @@ module.exports = {
     *@function    :coinflip takes the no of times to flip coin and print the percentage of head and tail
     *
     */
-    FlipCoin(times) {
+    flipCoin(times) {
         try {
             /**
              * initialize the variables to zero.
@@ -104,8 +104,8 @@ module.exports = {
                  */
                 var percentofhead = head * 100 / times;
                 var percentoftail = 100.0 - percentofhead;
-                console.log(percentofhead + "%");
-                console.log(percentoftail + "%");
+                console.log("head--->" + percentofhead + "%");
+                console.log("tail--->" + percentoftail + "%");
             }
             else {
                 console.log("enter only positive number");
@@ -121,13 +121,13 @@ module.exports = {
     *@function: function checks length of the given number, if length equals to 4, then it prints given number is Leap year or not
     *
     */
-    LeapYear(year) {
+    isLeapYear(year) {
         try {
             /**
              * condition to check whether the user defined year is leap year or not.
              * if it is leap year print then it display "is leap year" else display "not a leap yaer".
              */
-            if (year % 100 == 0 || year % 400 == 0 || year % 4 == 0 && year > 0) {
+            if (year % 100 != 0 && year % 400 == 0 || year % 4 == 0 && year > 0) {
                 console.log("is leap year");
             }
             else {
@@ -144,7 +144,7 @@ module.exports = {
     *@description : Prints the value of two's power .      
     *@function: function checks the given number is less then 31, if less then 31, then it prints the value of two's power i.e., 2^N value.
     */
-    PowerMeth() {
+    powerOfTwo() {
         try {
             /**
              * accept input from user through command line arguments.
@@ -186,7 +186,7 @@ module.exports = {
     *@description : To generate sum of harmonic numbers by accepting input from user.             
     *@function: function Harmonic func takes user input and sum it number of times that user given.
     */
-    HarmonicFunc(num) {
+    harmonicNumber(num) {
         try {
             /**
              * initialize the variable to 0.
@@ -217,13 +217,13 @@ module.exports = {
     *@description :Computes the prime factorization of N using brute force.
     *@function    :function PrimeFactor takes num as parameter for which prime factor should be find.
     */
-    PrimeFactor(num) {
+    primeFactor(num) {
         try {
             /**
              * for loop to check whether the number is prime or not.
              * 
              */
-            for (let i = 2; i * i < num; i++) {
+            for (let i = 2; i < num; i++) {
                 while (num % i == 0) {
                     console.log(i)
                     num = num / i;
@@ -249,43 +249,44 @@ module.exports = {
     *@function    :function gambler takes stake and goal as input.If random number is >0.5 it increments win 
                         and stake else it increment loss and decrement stake.
     */
-    Gambler(stake, goal) {
+    playGambling(stake, goal) {
         try {
             /**
-             * condition to check the stake should be greater then 0 and not a alphabet
-             */
-            if (stake > 0 && isNaN(stake) && isNaN(goal))
-                /**
                  * initilaize variables to 0.
                  */
-                var win = 0;
+            var win = 0;
             var lose = 0;
             var numtimes = 0;
             /**
-             * condition to check stake should be grater than zero and stake should be less than goal.
+             * condition to check the stake should be greater then 0 and not a alphabet
              */
-            while (stake > 0 && stake < goal) {
-                /**
-                 * use math.random to find the win or lose.
-                 * if it is less than 0.5 then decrement stake and increment lose.
-                 */
-                if (Math.random() < 0.5) {
-                    lose++;
-                    stake--;
+            if (stake > 0 && !isNaN(stake) && !isNaN(goal))
 
-                }
                 /**
-                 * if Math.random is greater than 0.5 then increment win and stake.
+                 * condition to check stake should be grater than zero and stake should be less than goal.
                  */
-                else {
-                    win++;
-                    stake++;
+                while (stake > 0 && stake < goal) {
+                    /**
+                     * use math.random to find the win or lose.
+                     * if it is less than 0.5 then decrement stake and increment lose.
+                     */
+                    if (Math.random() < 0.5) {
+                        lose++;
+                        stake--;
+
+                    }
+                    /**
+                     * if Math.random is greater than 0.5 then increment win and stake.
+                     */
+                    else {
+                        win++;
+                        stake++;
+                    }
+                    /**
+                     * increment numtime to know how many matches they played.
+                     */
+                    numtimes++;
                 }
-                /**
-                 * increment numtime to know how many matches they played.
-                 */
-                numtimes++;
-            }
 
             /**
              * calculating the win percentage,lose percentage
@@ -303,11 +304,7 @@ module.exports = {
         }
     },
 
-
-
-
-
-    /***************************************************Coupen****************************************
+    /**************************************************Coupen****************************************
     * @Purpose     : To choose a random number and check whether it's a new one.
     * @description : Given N distinct Coupon Numbers, how many random numbers do you need to generate
                      distinct coupon number? This program simulates this random process.
@@ -315,7 +312,7 @@ module.exports = {
     */
 
 
-    CoupenNumber(num) {
+    coupenNumber(num) {
         /*
         * taking an empty array.
         * initialize variable to 0.
@@ -339,17 +336,18 @@ module.exports = {
          */
         console.log(arr);
 
+
     },
 
 
-    /*************************************************Distance********************************************************** 
+    /****************************************Euclidean Distance********************************************************** 
     *@Purpose     :to print the Euclidean distance from the point (x, y) to the origin (0, 0).
     *@description :takes two integer command-line arguments x and y.The formulae to calculate distance = sqrt(x*x + y*y).
     *@function    :distance function takes input from comment line argument and calculates euclidean distance
                         using Math.sqrt.
     */
 
-    Distance() {
+    euclideanDistance() {
         /* 
         taking inputs from comment line arguments. 
         */
@@ -371,7 +369,7 @@ module.exports = {
     */
 
 
-    StopWatch() {
+    stopWatch() {
         try {
             /*
             create date object to get the seconds by using getSeconds() function 
@@ -388,7 +386,7 @@ module.exports = {
 
     },
 
-    ReadTime() {
+    readTime() {
         try {
             var starttime;
             var stoptime;
@@ -435,7 +433,7 @@ module.exports = {
     
     */
 
-    WindChill() {
+    windChill() {
         try {
             var w;
             /*
@@ -469,7 +467,7 @@ module.exports = {
                       triplets that sum has exactly 0 and display the count.                    
      */
 
-    triplets() {
+    distinctTriplets() {
         try {
             /**
              * Initialize count variable to zero 
@@ -542,7 +540,7 @@ module.exports = {
      * 
     */
 
-    Quadratic() {
+    quadraticEquation() {
         try {
             var a, b, c;
             var root1, root2, d;
@@ -772,6 +770,7 @@ module.exports = {
     /**************************** binarySearch method for integer *************************************/
     binarySearch(arr, x) {
         try {
+            arr.sort();
             var first = 0;
             var last = arr.length - 1;
             /**
@@ -828,9 +827,6 @@ module.exports = {
                     last = mid - 1;
             }
             return false;
-
-
-
         } catch (error) {
             console.log(error.message);
 
@@ -839,14 +835,14 @@ module.exports = {
 
 
     /**************************************insertionSort method for String.**************************** */
-    insertionSort() {
+    insertionSortInt() {
         var ar = [];
         ar = this.inputArr();
         var n = ar.length;
         for (let j = 1; j < n; j++) {
             var key = ar[j];
             var i = j - 1;
-            while ((i > -1) && (ar[i]) > key) {
+            while ((i > -1) && Number(ar[i]) > key) {
                 ar[i + 1] = ar[i];
                 i--;
             }
@@ -855,11 +851,8 @@ module.exports = {
         console.log(ar);
     },
 
-
-
-
     /*******************************************bubbleSort method for integer.***************************** */
-    BubbleSort(arr) {
+    bubbleSortInt(arr) {
         try {
             /**
              * looping over from first element till length of array.
@@ -895,7 +888,7 @@ module.exports = {
 
     /**************************************bubbleSort method for String.************************************ */
 
-    BubbleSort(arr) {
+    bubbleSortString(arr) {
         try {
             /**
              * looping over from first element till length of array.
@@ -974,7 +967,7 @@ module.exports = {
      * @function    :BubbleSort takes unsorted array as input and gives the output as sorted array.
     */
 
-    BubbleSort(arr) {
+    bubbleSort(arr) {
         try {
             /**
              * looping over from first element till length of array.
@@ -1016,7 +1009,7 @@ module.exports = {
      * @function    : tempConversion function takes temperature as input and convert it to celcius or fahrenheit.
      */
 
-    tempConversion() {
+    temperatureConversion() {
         try {
             /**
              * initialize variable to 0
@@ -1199,7 +1192,7 @@ module.exports = {
         }
     },
 
-    /**************************Binary Search the Word from Word Lis**************************************
+    /**************************Binary Search the Word from Word List**************************************
      * @purpose     :
      * @description : Desc -> Read in a list of words from File. Then prompt the user to enter a word to
                       search the list. The program reports if the search word is found in the list.
@@ -1229,6 +1222,90 @@ module.exports = {
      * 
      * 
     */
+
+    mergeFunction(left, right, arr) {
+        try {
+            var i = 0;
+            var j = 0;
+            var k = 0;
+            /**
+             *merge elements into arr[]
+             */
+            while (i < left.length && j < right.length) {
+                if (left[i] <= right[j]) {
+                    arr[k] = left[i];
+                    i++;
+                } else {
+                    arr[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+            /**
+             * if left[] is greater than right[], push all left[] into arr[]
+             */
+            while (i < left.length) {
+                arr[k] = left[i];
+                i++;
+                k++;
+            }
+            /**
+             * if left[] is lesser than right[], push all right[] into arr[]
+             */
+            while (j < right.length) {
+                arr[k] = right[j];
+                j++;
+                k++;
+            }
+            return arr;
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+    mergeSort(arr) {
+        try {
+            var n = arr.length;
+            /**
+             * if size is less than 2 return that.
+             */
+            if (n < 2) {
+                return;
+            }
+            /**
+             * calculate mid value
+             */
+            var mid = Math.floor(n / 2);
+            var left = [mid];
+            var right = [n - mid];
+            /**
+             * store  elements in left array which are present before the mid
+             */
+            for (let i = 0; i < mid; i++) {
+                left[i] = arr[i];
+            }
+            /**
+             * store  elements in left array which are present before the mid
+             */
+            for (let j = mid; j < n; j++) {
+                right[j - mid] = arr[j];
+            }
+            /**
+             * call mergesort for left half
+             */
+            this.mergeSort(left);
+            /**
+             * call mergesort for left half
+             */
+            this.mergeSort(right);
+            this.mergeFunction(left, right, arr);
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
+
+
+
 
 
 
@@ -1273,18 +1350,33 @@ module.exports = {
     */
     vendingMachine() {
         try {
-            var amount = readline.question("enter the amount: ");
+            //var amount = readline.question("enter the amount: ");
             var arr = [1000, 500, 100, 50, 5, 2, 1];
             var notes = 0;
-
-            for (i = 0; i < arr.length; i++) {
-                if (amount / arr[i] >= 1) {
-                    var c = Math.floor(amount / arr[i]);
-                    notes = notes + c;
-                    console.log(arr[i] + " notes are: " + c);
-                    amount = amount % arr[i];
+            var valid = false;
+            /**
+             * Validation to accept only numbers.
+             */
+            do {
+                var amount = readline.question("Enter the value in digit: ");
+                if (isNaN(amount)) {
+                    console.log("Not a valid entry.");
+                } else {
+                    valid = true;
+                }
+            } while (!valid);
+            if (amount > 0 && !isNaN(amount)) {
+                for (i = 0; i < arr.length; i++) {
+                    if (amount / arr[i] >= 1) {
+                        var c = Math.floor(amount / arr[i]);
+                        notes = notes + c;
+                        console.log(arr[i] + " notes are: " + c);
+                        amount = amount % arr[i];
+                    }
                 }
             }
+
+
             console.log("total number of nodes :" + notes);
         } catch (err) {
             console.log(err.message);
@@ -1292,4 +1384,9 @@ module.exports = {
 
         }
     },
+    /***********************************String permutation************************************
+     * 
+     * 
+     * 
+     */
 }

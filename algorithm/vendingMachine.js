@@ -1,2 +1,2 @@
-var Access = require('../Utility/utility')
-Access.vendingMachine();
+var access = require('../Utility/utility')
+access.vendingMachine();

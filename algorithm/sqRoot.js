@@ -1,2 +1,2 @@
-var Access = require('../Utility/utility')
-Access.findSquareRoot();
+var access = require('../Utility/utility')
+access.findSquareRoot();
