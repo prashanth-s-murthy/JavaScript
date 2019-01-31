@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Execution       : Default node         cmd> node fileName.js                 
+ *  Execution       : Default node         cmd> node utility.js                 
  *  Purpose         : TO deploy all the business logic.
  * 
  *  @description
@@ -30,6 +30,24 @@ module.exports = {
             arr[i] = read.question("enter the array element: ");
         }
         return arr;
+    },
+
+
+    fileRead() {
+        var fs = require('fs');
+        var f = fs.readFileSync('input.txt', 'utf8');
+        var arr = f.split(' ');
+        return arr;
+    },
+
+
+    fileWrite(fileName, data) {
+        var fs = require('fs');
+        fs.writeFile(fileName, data, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        });
     },
     //Functional Program
     /******************************************StringReplace************************************************************
@@ -325,7 +343,7 @@ module.exports = {
          * increment num1 .
          */
         while (num1 != num) {
-            var i = Math.round(Math.random() * num);
+            var i = Math.round(Math.random() * num * 55555);
             if (!arr.includes(i)) {
                 arr.push(i);
                 num1++;
@@ -348,17 +366,21 @@ module.exports = {
     */
 
     euclideanDistance() {
-        /* 
-        taking inputs from comment line arguments. 
-        */
-        var a = process.argv[2];
-        var b = process.argv[3];
-        /* 
-        using Math.sqrt to calculat the euclidean distance 
-        */
-        var dis = Math.sqrt(a * a + b * b);
-        console.log("the euclidean distance from (x,y) : " + dis);
-
+        try {
+            /* 
+            taking inputs from comment line arguments. 
+            */
+            var a = process.argv[2];
+            var b = process.argv[3];
+            /* 
+            using Math.sqrt to calculat the euclidean distance 
+            */
+            var dis = Math.sqrt(a * a + b * b);
+            console.log("the euclidean distance from (x,y) : " + dis);
+        }
+        catch (err) {
+            console.log(err.message);
+        }
 
     },
 
@@ -705,15 +727,19 @@ module.exports = {
     },
 
     isNumberPalindrome(num1) {
-        var str = "";
-        num1 = num1 + "";
-        for (let i = 0; i < num1.length; i++) {
-            str = num1.charAt(i) + str;
+        try {
+            var str = "";
+            num1 = num1 + "";
+            for (let i = 0; i < num1.length; i++) {
+                str = num1.charAt(i) + str;
+            }
+            if (str == num1) {
+                return true;
+            }
+            return false;
+        } catch (err) {
+            console.log(err.message)
         }
-        if (str == num1) {
-            return true;
-        }
-        return false;
     },
 
     isAnagramPalindrome() {
@@ -836,19 +862,23 @@ module.exports = {
 
     /**************************************insertionSort method for String.**************************** */
     insertionSortInt() {
-        var ar = [];
-        ar = this.inputArray();
-        var n = ar.length;
-        for (let j = 1; j < n; j++) {
-            var key = ar[j];
-            var i = j - 1;
-            while ((i > -1) && Number(ar[i]) > key) {
-                ar[i + 1] = ar[i];
-                i--;
+        try {
+            var ar = [];
+            ar = this.inputArray();
+            var n = ar.length;
+            for (let j = 1; j < n; j++) {
+                var key = ar[j];
+                var i = j - 1;
+                while ((i > -1) && Number(ar[i]) > key) {
+                    ar[i + 1] = ar[i];
+                    i--;
+                }
+                ar[i + 1] = key;
             }
-            ar[i + 1] = key;
+            console.log(ar);
+        } catch (err) {
+            console.log(err.message);
         }
-        console.log(ar);
     },
 
     /*******************************************bubbleSort method for integer.***************************** */
@@ -1228,9 +1258,12 @@ module.exports = {
         })
     },
     /*****************************************MergeSort******************************************* 
-     * 
-     * 
-     * 
+     *@purpose      : To sort a give array using merge sort
+     *@description  : To Merge Sort an array, we divide it into two halves, sort the two 
+                      halves independently, and then merge the results to sort the full array. 
+
+     *@function     : merge function takes array as input and divide the array and merge the 
+                      array to get the sorted array. 
     */
 
     mergeFunction(left, right, arr) {
@@ -1317,11 +1350,6 @@ module.exports = {
     },
 
 
-
-
-
-
-
     /************************************* toBinaryConversion************************************* 
      * @purpose     : To convert the given number to binary format.
      * @description : Write a static function ​ toBinary that outputs the binary (base 2) representation of
@@ -1394,8 +1422,178 @@ module.exports = {
         }
     },
     /***********************************String permutation************************************
-     * 
-     * 
-     * 
+     *@Purpose      : To return all permutation of string
+     *@description  : Write static functions to return all permutation of a String using 
+                      iterative method and Recursion method. Check if the arrays returned 
+                      by two string functions are equal.
+     *@function     : stringPermutation takes string as input and find all the permutation of
+                      string using iterative method
      */
+    stringPermutations(string) {
+        try {
+            var results = [];
+            /**
+             * if string is a single character add the character to results and return results
+             */
+            if (string.length === 1) {
+                results.push(string);
+                return results;
+            }
+            /**
+             * for each char in string define numberPermutation as a char of string
+             * set numberPermutation to stringPermutations (without next char).
+             */
+            for (var i = 0; i < string.length; i++) {
+                var firstChar = string[i];
+                var charRemaining = string.substring(0, i) + string.substring(i + 1);
+                var numberPermutation = this.stringPermutations(charRemaining);
+                /**
+                 * foreach string in numberPermutation add defined char and numberPermutation char
+                 * return results
+                 */
+                for (var j = 0; j < numberPermutation.length; j++) {
+                    results.push(firstChar + numberPermutation[j]);
+                }
+            }
+            return results;
+        } catch (error) {
+            console.log("error.message");
+        }
+    },
+
+    /**************************************Tic Tac Toe************************************* */
+    intializeGame() {
+        try {
+            var game = [];
+            for (let i = 0; i <= 2; i++) {
+                game.push([]);
+                for (let j = 0; j <= 2; j++)
+                    game[i][j] = '-';
+            }
+            return game;
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    },
+
+    random() {
+        try {
+            /**
+             * To generate the random value and return the value.
+             */
+            var value = Math.floor(Math.random() * 3);
+            console.log(value + 1);
+            return value;
+        } catch (err) {
+            console.log(err.message);
+        }
+    },
+
+    mark(game, x, y, value) {
+        try {
+            if (game[x][y] == '-')
+                game[x][y] = value;
+
+            for (let i = 0; i <= 2; i++) {
+                var print = [];
+                for (let j = 0; j <= 2; j++)
+                    print[j] = game[i][j];
+                console.log(print);
+            }
+            return game;
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+    ,
+    computerPlayer(game) {
+        try {
+            var arr;
+            var flag = false;
+            /**
+             * Loop over till flag becomes true.
+             */
+            while (flag == false) {
+                var x = this.random();
+                var y = this.random();
+                if (game[x][y] == '-') {
+                    arr = this.mark(game, x, y, 'O');
+                    flag = true;
+                }
+            }
+            return game;
+        } catch (err) {
+            console.log(err.message);
+        }
+    },
+
+    userPlayer(game) {
+        try {
+            var flag = false;
+            while (flag == false) {
+                /**
+                 * 
+                 * Loop over till the flag becomes false.
+                 */
+                console.log("Enter the row value:");
+                let x = readline.questionInt('Enter the value of x within 1,2,3 : ') - 1;
+                let y = readline.questionInt('Enter the value of y within 1,2,3 : ') - 1;
+                if (game[x][y] == '-') {
+                    this.mark(game, x, y, 'X');
+                    flag = true;
+                }
+                else
+                    console.log("Please enter the correct choice");
+            }
+            return game;
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+    ,
+    check(game) {
+        try {
+            for (let i = 0; i <= 2; i++) {
+                if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) {
+                    if (game[i][0] == 'O' || game[i][0] == 'X') {
+                        return true;
+                    }
+                }
+                if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) {
+                    if (game[0][i] == 'O' || game[0][i] == 'X') {
+                        return true;
+                    }
+                }
+            }
+            var k = 0, l = 0;
+            if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) {
+                if (game[0][0] == 'O' || game[0][0] == 'X') {
+                    return true;
+                }
+            }
+            if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) {
+                if (game[0][0] == 'O' || game[0][0] == 'X') {
+                    return true;
+                }
+            }
+            return false;
+        } catch (err) {
+            console.log(err.message);
+        }
+    },
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
