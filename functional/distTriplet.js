@@ -11,6 +11,11 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
-
+/**
+ * for accessing data from the utility file.
+ */
 var access = require('../Utility/utility')
+/**
+ * accessing distinctTriplets function from utility.js
+ */
 access.distinctTriplets();

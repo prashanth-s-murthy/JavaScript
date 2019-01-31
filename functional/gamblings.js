@@ -12,8 +12,20 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var stake=read.question("enter the stake: ");
-var goal=read.question("enter the goal: ");
-access.playGambling(stake,goal);
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * taking input from user as stake and goal
+ */
+var stake = read.question("enter the stake: ");
+var goal = read.question("enter the goal: ");
+/**
+ * accessing playGambling function from utility.js
+ */
+access.playGambling(stake, goal);

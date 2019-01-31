@@ -11,7 +11,19 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var num=read.question("enter the num: ");
-access.primeFactor(num);
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * number takes the user input
+ */
+var number = read.question("enter the num: ");
+/**
+ * accessing primeFactor function from utility.js
+ */
+access.primeFactor(number);

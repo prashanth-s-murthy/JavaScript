@@ -12,6 +12,15 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * accessing powerOfTwo function from utility.js
+ */
 access.powerOfTwo();

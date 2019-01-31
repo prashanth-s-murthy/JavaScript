@@ -12,5 +12,11 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * accessing euclideanDistance function from utility.js
+ */
 access.euclideanDistance();

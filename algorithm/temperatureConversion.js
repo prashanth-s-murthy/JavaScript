@@ -1,10 +1,11 @@
 /**************************************************************************
- * Execution       : Default node             cmd> node primeNumber.js
- * Purpose         : To print the prime number between 0 to 1000.
+ * Execution       : Default node             cmd> node tempratureConversion.js
+ * Purpose         : To covert the temperature from fahrenheit to celsius or viceversa.
  * @description
  * 
- * @file            : primeNumber.js
- * @overview        : Take a range of 0 - 1000 Numbers and find the Prime numbers in that range.
+ * @file            : tempratureConversion.js
+ * @overview        : the temperature in fahrenheit as input outputs the temperature in 
+ *                    Celsius or viceversa
  * @module          : read-line modules are installed
  * @author          : PRASHANTH S   <prashanth.murthy007@gmail.com>
  * @version         : 1.0.  
@@ -15,10 +16,6 @@
  */
 var access = require('../Utility/utility')
 /**
- * read variable reads the input from user
+ * accessing temperatureConversion function from utility.js
  */
-var read = require('readline-sync');
-/**
- * accessing primenumber function from utility.js
- */
-access.primenumber();
+access.temperatureConversion();

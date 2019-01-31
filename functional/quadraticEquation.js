@@ -15,5 +15,11 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * accessing quadraticEquation function from utility.js
+ */
 access.quadraticEquation();

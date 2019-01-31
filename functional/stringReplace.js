@@ -11,7 +11,17 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var username=read.question("enter the name: ");
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+
+var read = require('readline-sync');
+/**
+ * variable username takes the user input as string
+ */
+var username = read.question("enter the name: ");
+/**
+ * accessing stringReplace function from utility.js
+ */
 access.stringReplace(username);

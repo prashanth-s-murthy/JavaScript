@@ -11,7 +11,19 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var num=read.question("enter the num: ");
-access.harmonicNumber(num);
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * taking the number as input from user.
+ */
+var number = read.question("enter the num: ");
+/**
+ * accessing harmonicNumber function from utility.js
+ */
+access.harmonicNumber(number);

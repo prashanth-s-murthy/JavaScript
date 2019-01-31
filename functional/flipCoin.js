@@ -12,7 +12,19 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var times=read.question("enter the no of time coin flips: ");
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * taking the number conin flips as input
+ */
+var times = read.question("enter the no of time coin flips: ");
+/**
+ * accessing flipCoin function from utility.js
+ */
 access.flipCoin(times)

@@ -11,6 +11,12 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var res=access.readTime();
-console.log(res);
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * accessing readTime function from utility.js
+ */
+var result = access.readTime();
+console.log(result);

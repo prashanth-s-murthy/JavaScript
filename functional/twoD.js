@@ -12,8 +12,20 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
+/**
+ * for accessing data from the utility file.
+ */
 var access = require('../Utility/utility')
-var readline =require('readline-sync');
-var row = readline.question("enter the number of rows");
-var col = readline.question("enter the number of columns");
-access.twoD(row,col);
+/**
+ * reading inputs from user
+ */
+var readline = require('readline-sync');
+/**
+ * variable rows and columns takes user input as number
+ */
+var rows = readline.question("enter the number of rows");
+var columns = readline.question("enter the number of columns");
+/**
+ * accessing twoD function from utility.js
+ */
+access.twoD(rows, columns);

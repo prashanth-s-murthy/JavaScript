@@ -23,7 +23,7 @@ module.exports = {
     /**
      * @Purpose :to accept size and array element from user.
      */
-    inputArr() {
+    inputArray() {
         var arr = [];
         var size = read.question("enter the size of the array: ");
         for (let i = 0; i < size; i++) {
@@ -837,7 +837,7 @@ module.exports = {
     /**************************************insertionSort method for String.**************************** */
     insertionSortInt() {
         var ar = [];
-        ar = this.inputArr();
+        ar = this.inputArray();
         var n = ar.length;
         for (let j = 1; j < n; j++) {
             var key = ar[j];
@@ -931,14 +931,20 @@ module.exports = {
      */
     toFindnumber(low, high) {
         try {
-            var mid = low + Math.floor((high - low) / 2);
             /**
              * Finds the mid value and math.floor round of the value if the answer is in decimal.
              */
+            var mid = low + Math.floor((high - low) / 2);
             var k;
+            /***
+             * conditin to check the number is low or high
+             */
             if (low < high) {
                 if (low == high - 1) {
                     k = read.question("Is the number " + low + "If Yes press --> Yes " + "  " + " .If No press--> No" + " : ");
+                    /**
+                     * if k equals to true then returns low value else return high value.
+                     */
                     if (k == 'Yes')
                         return low;
                     if (k == 'No')
@@ -1055,7 +1061,6 @@ module.exports = {
                       monthly payment.
     */
 
-
     monthlyPayment() {
         try {
             /**
@@ -1083,11 +1088,13 @@ module.exports = {
      * @function    : insertion sort function to sort the string.
     */
 
-
     insertionSort() {
         try {
             var ar = [];
-            ar = this.inputArr();
+            /**
+             * accessing inputArray
+             */
+            ar = this.inputArray();
             var n = ar.length;
             for (let j = 1; j < n; j++) {
                 var key = ar[j];
@@ -1118,6 +1125,9 @@ module.exports = {
 
     dayOfWeek() {
         try {
+            /**
+             * taking date month and year as user input from command line arguments.
+             */
             var date = Number(process.argv[2]);
             var month = Number(process.argv[3]);
             var year = Number(process.argv[4]);
@@ -1193,7 +1203,7 @@ module.exports = {
     },
 
     /**************************Binary Search the Word from Word List**************************************
-     * @purpose     :
+     * @purpose     : The program reports if the search word is found in the list.
      * @description : Desc -> Read in a list of words from File. Then prompt the user to enter a word to
                       search the list. The program reports if the search word is found in the list.
      * @function    : search word takes value to be searched in the array if the value is found it returns 
@@ -1225,6 +1235,9 @@ module.exports = {
 
     mergeFunction(left, right, arr) {
         try {
+            /*
+             * initial variable i,j,k to zero.
+            */
             var i = 0;
             var j = 0;
             var k = 0;
@@ -1365,23 +1378,19 @@ module.exports = {
                     valid = true;
                 }
             } while (!valid);
-            if (amount > 0 && !isNaN(amount)) {
-                for (i = 0; i < arr.length; i++) {
-                    if (amount / arr[i] >= 1) {
-                        var c = Math.floor(amount / arr[i]);
-                        notes = notes + c;
-                        console.log(arr[i] + " notes are: " + c);
-                        amount = amount % arr[i];
-                    }
+
+            for (i = 0; i < arr.length; i++) {
+                if (amount / arr[i] >= 1) {
+                    var c = Math.floor(amount / arr[i]);
+                    notes = notes + c;
+                    console.log(arr[i] + "Rs. notes are: " + c);
+                    amount = amount % arr[i];
                 }
             }
-
-
             console.log("total number of nodes :" + notes);
-        } catch (err) {
+        }
+        catch (err) {
             console.log(err.message);
-
-
         }
     },
     /***********************************String permutation************************************

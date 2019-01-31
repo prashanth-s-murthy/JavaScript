@@ -12,7 +12,19 @@
  * @version         : 1.0.  
  * @since           : 24/01/2019
  ***************************************************************************/
-var access=require('../Utility/utility')
-var read=require('readline-sync');
-var year=read.question("enter the year: ");
+/**
+ * for accessing data from the utility file.
+ */
+var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
+var read = require('readline-sync');
+/**
+ * variable year takes from user
+ */
+var year = read.question("enter the year: ");
+/**
+ * accessing isLeapYear function from utility.js
+ */
 access.isLeapYear(year);

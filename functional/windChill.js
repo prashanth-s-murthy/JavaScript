@@ -13,6 +13,15 @@
  * @version         : 1.0.  
  * @since           : 25/01/2019
  ***************************************************************************/
+/**
+ * for accessing data from the utility file.
+ */
 var access = require('../Utility/utility')
+/**
+ * reading inputs from user
+ */
 var read = require('readline-sync');
+/**
+ * accessing windChill function from utility.js
+ */
 access.windChill();
