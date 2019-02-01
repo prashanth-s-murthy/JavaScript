@@ -35,8 +35,9 @@ module.exports = {
 
     fileRead() {
         var fs = require('fs');
-        var f = fs.readFileSync('input.txt', 'utf8');
-        var arr = f.split(' ');
+        //var path=readline.question("");
+        var f = fs.readFileSync('numbers.txt', 'utf8');
+        var arr = f.trim().split(' ');
         return arr;
     },
 
