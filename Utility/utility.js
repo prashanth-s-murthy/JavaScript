@@ -35,8 +35,10 @@ module.exports = {
 
     fileRead() {
         var fs = require('fs');
-        //var path=readline.question("");
-        var f = fs.readFileSync('numbers.txt', 'utf8');
+        var ch=0;
+      //  var filename=readline.question("for unOrderedList enter unOrderedList.txt\n"+
+       // "for orderedList enter orderedList.txt");
+        var f = fs.readFileSync('orderedList.txt', 'utf8');
         var arr = f.trim().split(' ');
         return arr;
     },
