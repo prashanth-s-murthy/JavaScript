@@ -22,7 +22,7 @@ For accessing data from utility file and utilityDataStructure
 var access = require("../Utility/utility");
 var accessDs = require("../Utility/utilityDataStructure");
 /**
- * Read the file and store it an array
+ * Read content from the file and store it in array
  */
 var arr1 = access.fileRead();
 var arr = []
@@ -76,7 +76,11 @@ if (result == true) {
   access.fileWrite('orderedList.txt', output);
   console.log("Removed the number from the list since the number is already present ");
   console.log("New data: " + output);
-} else {
+}
+/** 
+ * if number is not present then the number is added to the list.
+ *  */
+else {
   var position = linkedList.addPosition(arr, number)
   linkedList.insertAt(number, position);
   var output1 = linkedList.printList();

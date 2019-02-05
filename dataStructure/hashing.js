@@ -56,7 +56,6 @@ function hashing() {
             arr[remainder].add(n);
         }
     }
-
     var str = "";
     /**
      * loop over the index to print the content of the file

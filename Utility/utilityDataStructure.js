@@ -46,18 +46,26 @@ class LinkedList {
   }
   /**
    * add function adds the data to the end of the list.
-   * @param {add} element takes the element to be added to the list.
+   * @param {any} element takes the element to be added to the list.
    */
   add(element) {
     var node = new Node(element);
     var current = this.head;
-
+    /**
+     * if head is null then create a node.
+     */
     if (this.head == null) {
       this.head = node;
     }
     else {
+      /**
+       * if the current is pointing to head 
+       */
       current = this.head;
-
+      /**
+       * iterate till the current.next is null and add the node.
+       * increment the size.
+       */
       while (current.next) {
         current = current.next;
       }
@@ -65,6 +73,9 @@ class LinkedList {
     }
     this.size++;
   }
+  /**
+   * print the number in the list.
+   */
   printList() {
     var curr = this.head;
     var str = "";
@@ -74,9 +85,15 @@ class LinkedList {
     }
     return str;
   }
-
+  /**
+   * search the element in the list and returns true or false.
+   * @param {any} element 
+   */
   search(element) {
     var temp = this.head;
+    /**
+     * if element found it returns true.
+     */
     while (temp) {
       if (temp.element == element) {
         return true;
@@ -85,6 +102,10 @@ class LinkedList {
     }
     return false;
   }
+  /**
+   * removes the element from the list.
+   * @param {any} element 
+   */
   removeElement(element) {
     var current = this.head;
     var prev = null;
@@ -155,7 +176,10 @@ class LinkedList {
     return arr.length;
   }
 }
-/******************************************************************************************** */
+/*************************************Stack****************************************** */
+/**
+ * creating the stack class
+ */
 class Stack {
   constructor() {
     this.items = [];
@@ -214,80 +238,110 @@ class Stack {
     }
   }
 }
-/************************************************************************************************ */
+/***************************************Queue*********************************************** */
+/**
+ * creating the Queue class.
+ */
+class Queue {
+  constructor() {
+    this.items = [];
+  }
 
-class Queue{
-  constructor()
-  { 
-      this.items = []; 
+  /**
+   *  adding element to the queue 
+   * @param {any} data 
+   */
+  enqueue(data) {
+    this.items.push(data)
   }
-  enqueue(data)
-  {
-      // adding element to the queue 
-  this.items.push(data)
+  /**
+   *  removing the data from the queue.
+   */
+  deEqueue() {
+    if (this.isEmpty())
+      return "Underflow";
+    return this.items.shift();
   }
-  deEqueue()
-  {
-      if(this.isEmpty()) 
-      return "Underflow"; 
-  return this.items.shift(); 
+  /**
+   * return true if the queue is empty. 
+   */
+  isEmpty() {
+    return this.items.length == 0;
   }
-  isEmpty()
-  {
-        // return true if the queue is empty. 
-  return this.items.length == 0; 
-  }
-  printList()
-  {
-      var str = ""; 
-      for(var i = 0; i < this.items.length; i++) 
-          str += this.items[i] +" "; 
-      return str; 
+  /**
+   * print the elements in queue.
+   */
+  printList() {
+    var string = "";
+    for (var i = 0; i < this.items.length; i++)
+      string += this.items[i] + " ";
+    return string;
   }
 }
 
 
-/***********************************************************************************************/
-
-
+/****************************************Deque**********************************************/
+/**
+ * creating the class Deque
+ */
 class Deque {
   constructor() {
     this.items = [];
   }
+  /**
+   * add the data to the front of the queue.
+   * @param {any} data 
+   */
   addFront(data) {
     return this.items.unshift(data);
   }
-
+  /**
+   * add the data to end of the queue.
+   * @param {any} data 
+   */
   addRear(data) {
     return this.items.push(data);
   }
-
+  /**
+   * removes the data from the front.
+   */
   removeFront() {
     return this.items.shift();
   }
-
+  /**
+   * remove the data from the end.
+   */
   removeRear() {
     return this.items.pop();
   }
-
+  /**
+   * returns whether the queue is empty or not.
+   */
   isEmpty() {
     return this.items.length == 0;
   }
+  /**
+   * returns the size of the queue.
+   */
   sizeOf() {
     return this.items.length;
   }
 }
 
-
-class SNode {
-  constructor(data){
+/************************************************************************************************************** */
+/**
+ * creating the class StackNode
+ */
+class StackNode {
+  constructor(data) {
     this.data = data;
-    this.next= null;
+    this.next = null;
   }
 }
-
+/**
+ * creating the class StackLinkedList
+ */
 class StackLinkedList {
-
   constructor() {
     this.top = null;
   }
@@ -299,22 +353,24 @@ class StackLinkedList {
     /**
      * create new node temp.
      */
-    let node = new SNode(item);
+    let node = new StackNode(item);
     /**
      * check if stack (heap) is full. Then inserting an element would lead to stack overflow
      */
 
     if (this.top) {
-        node.next = this.top
-        this.top = node;
+      node.next = this.top
+      this.top = node;
     }
-      else{
-          this.top = node;
-      }
+    else {
+      this.top = node;
     }
-
+  }
+  /**
+   * removes the element from the top of the stack.
+   */
   pop() {
-      if( this.top ) {
+    if (this.top) {
       let itemToPop = this.top
       this.top = this.top.next
       return itemToPop.data
@@ -328,58 +384,149 @@ class StackLinkedList {
    * Return the topmost element without removing it from the stack.
    */
   peak() {
-      if( this.top ) {
-          return this.top.data
-         } else {
-          return null
-         }
+    if (this.top) {
+      return this.top.data
+    } else {
+      return null
+    }
   }
   /**
    * Returns true if the stack is empty.
    */
   isEmpty() {
-      return this.length > 1
+    return this.length > 1
   }
   /**
    * Returns the size of the stack
    */
   size() {
-      let current = this.top
-      let counter = 0
-      while( current ) {
-       counter++
-       current = current.next
-      }
-      return counter
+    let current = this.top
+    let counter = 0
+    while (current) {
+      counter++
+      current = current.next
+    }
+    return counter
   }
-
+  /**
+   * prints the elements of stack.
+   */
   printStack() {
-    try {
-      var string = "";
-      for (var i = 0; i < this.items.length; i++) string += this.items[i] + " ";
-      return string;
-    } catch (error) {
-      console.log(error.message);
+
+    var string = "";
+    var temp = this.top;
+    while (temp != null) {
+      string = string + " " + temp.data;
+      temp = temp.next;
+    }
+
+    return string;
+
+  }
+}
+/********************************************************************************************* */
+/**
+ * creating the class StackNode
+ */
+class QueueNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+/**
+ * creating the class StackNode
+ */
+class LinkListQueue {
+  constructor() {
+    this.tail = null;
+    this.head = null;
+
+  }
+  /**
+   * add the data to the queue
+   * @param {any} item 
+   */
+  enQueue(item) {
+    let node = new QueueNode(item);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
     }
   }
+  /**
+   * removes the data from the queue
+   */
+  deQueue() {
+    if (!this.head) {
+      return "no item";
+    }
+    else {
+      let itemTopop = this.head;
+      this.head = this.head.next;
+      return itemTopop.data;
+    }
+  }
+  /**
+   * returns whether the size is empty or not
+   */
+  isEmpty() {
+    return this.size() < 1;
+  }
+  /**
+   * returns the size of the queue
+   */
+  size() {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      count++;
+      current = current.next;
+    }
+    return count;
+  }
+  /**
+   * prints the data to the queue.
+   */
+  print() {
+
+    var string = "";
+    var temp = this.head;
+    while (temp != null) {
+      string = string + " " + temp.data;
+      temp = temp.next;
+    }
+
+    return string;
+
+  }
 }
- 
 
-module.exports = { LinkedList, Node, Stack,Queue, Deque ,StackLinkedList,
-/***************************************Binary**************************************** */
-binaryTree(num)
-{
-var fact=1;
-for(let i=1;i<=num;i++)
-{
-    fact=fact*i;
-}
-return fact;
-},
+module.exports = {
+  LinkedList, Node, Stack, Queue, Deque, StackLinkedList, QueueNode, LinkListQueue,
+  /***************************************Binary**************************************** */
+  /**
+   * 
+   * @param {Number} num 
+   */
+  binaryTree(num) {
+    var fact = 1;
+    for (let i = 1; i <= num; i++) {
+      fact = fact * i;
+    }
+    return fact;
+  },
 
-/*************************************Calender ********************************************* */
-
-
+  /************************************* Calender ********************************************* */
+  /**
+   * day returns the day on which the month begins.
+   * @param {Number} m 
+   * @param {Number} d 
+   * @param {Number} y 
+   */
   day(m, d, y) {
     var v = Math.floor((14 - m) / 12)
     var y0 = y - v
@@ -389,13 +536,23 @@ return fact;
     d0 = Math.floor(d0)
     return d0;
   },
+  /**
+   * takes the year as input and return whether the year is leap year or not.
+   * @param {Number} year 
+   */
   leapYear(year) {
+    /**
+     * condition to check the leap year.
+     */
     if ((year % 4 == 0) && (year % 100 != 0)) return true;
     if (year % 400 == 0) return true;
     return false;
   },
-
-  monthof(month) {
+  /**
+   * monthof takes the month as input and returns the number of days in that month.
+   * @param {Number} month 
+   */
+  monthOf(month) {
 
     switch (month) {
       case 1: return 31;
@@ -424,38 +581,82 @@ return fact;
         break;
     }
   },
+  /*************************************************************************************** */
+  /**
+   * isPrime takes initual and final ad input and returns the prime number between the rang.
+   * @param {Number} initial 
+   * @param {Number} final 
+   */
+  isPrime(initial, final) {
+    var flag = 0;
+    k = 0;
+    var prime = [];
 
-
- 
-
-
-/*************************************************************************************** */
-isPrime(initial,final)
-{
-var flag=0;
-k=0;
-var prime=[];
-
-for(var index1=initial;index1<=final;index1++)
-{
-  for(var index2=2;index2<index1;index2++)
-  {
-    if(index1%index2==0)
-    {
-      flag=0;
-      break;
+    for (var index1 = initial; index1 <= final; index1++) {
+      for (var index2 = 2; index2 < index1; index2++) {
+        if (index1 % index2 == 0) {
+          flag = 0;
+          break;
+        }
+        else {
+          flag = 1;
+        }
+      }
+      if (flag == 1) {
+        prime[k++] = index1;
+      }
     }
-    else
-    {
-      flag=1;
-    }
+    return prime;
+  },
+/***************************************** rangeOfArray ****************************************** */
+rangeOfArray() {
+  var arr = [];
+  var arr2 = [];
+  var array = [["0-100 "], ["100-200 "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
+  for (let i = 2; i < 1000; i++) {
+      if (utility.isPrime(i)) {
+          arr.push(i);
+
+      }
   }
-  if(flag==1)
-  {
-    prime[k++]=index1;
+  var range = 100, k = 0;
+  for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+          if (utility.isAnagram(arr[i], arr[j])) {
+              if (arr[i] <= range) {
+                  if (arr[j] <= range) {
+                      array[k].push(arr[i]);
+
+                      arr2.push(arr[i])
+                      arr2.push(arr[j])
+                      array[k].push(arr[j]);
+                  }
+              } else {
+                  range = range + 100;
+                  k++;
+                  if (arr[j] <= range) {
+                      array[k].push(arr[i]);
+                      array[k].push(arr[j]);
+                  }
+              }
+          }
+      }
   }
+  console.log("The Number which are prime and anagram ");
+  var req=require('util')
+  for (let i = 0; i < array.length; i++) {
+
+      for (let j = 0; j < array[i].length; j++) {
+          req.print(array[i][j]);
+          if (j == 0) {
+              req.print(" => ");
+          } else {
+              if (j != array[i].length - 1)
+                  req.print(",")
+          }
+      }
+      console.log();
+  }
+  return arr2
+},
 }
-return prime;
-}
-}
-/***************************************************************************************** */
