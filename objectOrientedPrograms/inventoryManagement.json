@@ -1,0 +1,53 @@
+{
+    "rice": [
+        {
+            "name": "Annapoorna",
+            "weight": 10,
+            "price": 40
+        },
+        {
+            "name": "SonaMasuri",
+            "weight": 5,
+            "price": 30
+        },
+        {
+            "name": "Basmati",
+            "weight": 10,
+            "price": 70
+        }
+    ],
+    "wheat": [
+        {
+            "name": "bread flour",
+            "weight": 10,
+            "price": 40
+        },
+        {
+            "name": "pastry flour",
+            "weight": 5,
+            "price": 25
+        },
+        {
+            "name": "cake flour",
+            "weight": 15,
+            "price": 50
+        }
+    ],
+    "pulses": [
+        {
+            "name": "green gram",
+            "weight": 5,
+            "price": 25
+        },
+        {
+            "name": "black gram",
+            "weight": 10,
+            "price": 30
+        },
+        {
+            "name": "chick peas",
+            "weight": 5,
+            "price": 35
+        }
+    ]
+}

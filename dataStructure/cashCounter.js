@@ -30,13 +30,11 @@ function queue() {
     /**
      * initializing variable bankamount to 4000.
      */
-    var bankamount = 4000;
-    var set = [];
+    var bankamount = 1000;
     /**
      * 
      */
     var flag = true;
-    var count = 0;
     /**
      * taking input from user
      */
@@ -54,7 +52,9 @@ function queue() {
              * if condition==1 then the amount is deposited
              */
             if (input == 1) {
+
                 var amount = read.questionFloat("Enter the total amount to deposit :")
+
                 var set = queue.enqueue(Number(amount));
                 flag = true;
             }
@@ -66,6 +66,7 @@ function queue() {
                 var get = queue.enqueue(Number(-amount))
                 flag = true;
             }
+
             /**
              * else enter the correct key.
              */

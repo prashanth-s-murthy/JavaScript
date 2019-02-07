@@ -29,8 +29,17 @@ function call() {
     try {
         var weekdays = new access1.LinkListQueue
         var dateq = new access1.LinkListQueue
-        var month = read.questionInt("enter the month :")
-        var year = read.questionInt("enter the year :")
+        var valid = false;
+        do {
+            var month = read.questionInt("enter the month :")
+            var year = read.questionInt("enter the year :")
+            if ((month <= 0 || month > 12) || isNaN(month, year) || (999 > year || year > 10000)) {
+                console.log("not valid number");
+
+            } else {
+                valid = true;
+            }
+        } while (!valid);
         var d = access1.day(month, 1, year)
         console.log(d)
         var res = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "sat"];
@@ -39,6 +48,7 @@ function call() {
         }
         var days = access1.monthOf(month)
         var t1 = access1.monthOf(year)
+
         if (t1) {
             if (month == 2) {
                 days = 29;
@@ -48,7 +58,9 @@ function call() {
          * Loop to enqueue the weekdays into Queue.
          */
         for (let i = 0; i < res.length; i++) {
-            weekdays.enQueue(res[i])
+
+            var a = weekdays.enQueue(res[i])
+
         }
         /**
          * Loop to enqueue the dates into Queue.

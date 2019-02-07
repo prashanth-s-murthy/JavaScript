@@ -22,22 +22,22 @@ var readline = require('readline-sync');
 /**
  * creating an empty array.
  */
-var array=[];
+var array = [];
 /**
  * creating object  of LinkListQueue. 
  */
-var queue=new access1.LinkListQueue;
+var queue = new access1.LinkListQueue;
 /**
  * looping from 0 to 1000 it find the prime number.
  */
-for (let i =0; i<1000; i++) {
+for (let i = 0; i < 1000; i++) {
     /**
      * accessing isPrime function.
      */
     if (access.isPrime(i))
-    /**
-     * pushing each element to an array.
-     */
+        /**
+         * pushing each element to an array.
+         */
         array.push(i)
 }
 
@@ -49,4 +49,4 @@ for (let i = 0; i < array.length; i++) {
         }
     }
 }
-  console.log(" Anagrams are :"+queue.print());
+console.log(" Anagrams are :" + queue.print());

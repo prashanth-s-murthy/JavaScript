@@ -37,8 +37,16 @@ function call() {
         /**
          * month, year takes the input from user.
          */
-        var month = read.questionInt("enter the month :")
-        var year = read.questionInt("enter the year :")
+        do {
+            var month = read.questionInt("enter the month :")
+            var year = read.questionInt("enter the year :")
+            if ((month <= 0 || month > 12) || isNaN(month, year) || (999 > year || year > 10000)) {
+                console.log("not valid number");
+
+            } else {
+                valid = true;
+            }
+        } while (!valid);
         var d = access1.day(month, 1, year)
         console.log(d)
         /**

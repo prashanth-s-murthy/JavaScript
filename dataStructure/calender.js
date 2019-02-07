@@ -31,17 +31,25 @@ function calender() {
 
     var day = access1.day(month, 1, year);
     console.log(day);
+    /**
+     * accessing leapyear function from the utilityDataStructure.
+     */
     var leap = access1.leapYear(year);
-    if (leap = true) {
+    /**
+     * if year is leap year then the 2nd month has 29 days.
+     */
+    if (leap == true) {
 
         dates[2] = 29;
     }
     for (var i = 0; i < week.length; i++) {
         access2.print(week[i] + "  ");
+
     }
     console.log();
     for (var i = 0; i < (day * 5); i++) {
         access2.print(" ");
+
     }
 
     for (var i = 1; i <= dates[month]; i++) {
@@ -57,7 +65,6 @@ function calender() {
         }
 
     }
-
     console.log("\n\n");
 
 } calender();

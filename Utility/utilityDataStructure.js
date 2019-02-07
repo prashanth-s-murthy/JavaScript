@@ -513,11 +513,19 @@ module.exports = {
    * @param {Number} num 
    */
   binaryTree(num) {
-    var fact = 1;
-    for (let i = 1; i <= num; i++) {
-      fact = fact * i;
+    try {
+      var fact = 1;
+      /**
+       * looping over the number to find the factorial.
+       */
+      for (let i = 1; i <= num; i++) {
+        fact = fact * i;
+      }
+      return fact;
+    } catch (err) {
+      console.log(err.message);
+
     }
-    return fact;
   },
 
   /************************************* Calender ********************************************* */
@@ -528,58 +536,74 @@ module.exports = {
    * @param {Number} y 
    */
   day(m, d, y) {
-    var v = Math.floor((14 - m) / 12)
-    var y0 = y - v
-    var x = y0 + Math.floor(y0 / 4) - Math.floor(y0 / 100) + Math.floor(y0 / 400)
-    var m0 = m + 12 * Math.floor((14 - m) / 12) - 2
-    var d0 = (d + x + Math.floor((31 * m0) / 12)) % 7
-    d0 = Math.floor(d0)
-    return d0;
+    try {
+      /**
+       * formula to calculate the day using Gregorian calendar.
+       */
+      var v = Math.floor((14 - m) / 12)
+      var y0 = y - v
+      var x = y0 + Math.floor(y0 / 4) - Math.floor(y0 / 100) + Math.floor(y0 / 400)
+      var m0 = m + 12 * Math.floor((14 - m) / 12) - 2
+      var d0 = (d + x + Math.floor((31 * m0) / 12)) % 7
+      d0 = Math.floor(d0)
+      return d0;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
   /**
    * takes the year as input and return whether the year is leap year or not.
    * @param {Number} year 
    */
   leapYear(year) {
-    /**
-     * condition to check the leap year.
-     */
-    if ((year % 4 == 0) && (year % 100 != 0)) return true;
-    if (year % 400 == 0) return true;
-    return false;
+    try {
+      /**
+      * condition to check the leap year.
+      */
+      if ((year % 4 == 0) && (year % 100 != 0)) return true;
+      if (year % 400 == 0) return true;
+      return false;
+    } catch (err) {
+      console.log(err.message);
+    }
+
   },
   /**
    * monthof takes the month as input and returns the number of days in that month.
    * @param {Number} month 
    */
   monthOf(month) {
-
-    switch (month) {
-      case 1: return 31;
-        break;
-      case 2: return 28;
-        break;
-      case 3: return 31;
-        break;
-      case 4: return 30;
-        break;
-      case 5: return 31;
-        break;
-      case 6: return 30;
-        break;
-      case 7: return 31;
-        break;
-      case 8: return 31;
-        break;
-      case 9: return 30;
-        break;
-      case 10: return 31;
-        break;
-      case 11: return 30;
-        break;
-      case 12: return 31;
-        break;
+    try {
+      switch (month) {
+        case 1: return 31;
+          break;
+        case 2: return 28;
+          break;
+        case 3: return 31;
+          break;
+        case 4: return 30;
+          break;
+        case 5: return 31;
+          break;
+        case 6: return 30;
+          break;
+        case 7: return 31;
+          break;
+        case 8: return 31;
+          break;
+        case 9: return 30;
+          break;
+        case 10: return 31;
+          break;
+        case 11: return 30;
+          break;
+        case 12: return 31;
+          break;
+      }
+    } catch (err) {
+      console.log(err.message);
     }
+
   },
   /*************************************************************************************** */
   /**
@@ -588,75 +612,96 @@ module.exports = {
    * @param {Number} final 
    */
   isPrime(initial, final) {
-    var flag = 0;
-    k = 0;
-    var prime = [];
+    try {
+      var flag = 0;
+      k = 0;
+      var prime = [];
+      /**
+       * looping over index find the prime number between the range.
+       */
+      for (var index1 = initial; index1 <= final; index1++) {
+        for (var index2 = 2; index2 < index1; index2++) {
+          if (index1 % index2 == 0) {
+            flag = 0;
+            break;
+          }
+          else {
+            flag = 1;
+          }
+        }
+        if (flag == 1) {
+          prime[k++] = index1;
+        }
+      }
+      return prime;
+    } catch (err) {
+      console.log(err.message);
 
-    for (var index1 = initial; index1 <= final; index1++) {
-      for (var index2 = 2; index2 < index1; index2++) {
-        if (index1 % index2 == 0) {
-          flag = 0;
-          break;
-        }
-        else {
-          flag = 1;
-        }
-      }
-      if (flag == 1) {
-        prime[k++] = index1;
-      }
     }
-    return prime;
+
   },
-/***************************************** rangeOfArray ****************************************** */
-rangeOfArray() {
-  var arr = [];
-  var arr2 = [];
-  var array = [["0-100 "], ["100-200 "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
-  for (let i = 2; i < 1000; i++) {
-      if (utility.isPrime(i)) {
+  /***************************************** rangeOfArray ****************************************** */
+  rangeOfArray() {
+    try {
+      var arr = [];
+      var array = [["0-100 "], ["100-200 "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
+      /**
+       * looping over the number to check whether the number is prime or not.
+       */
+      for (let i = 2; i < 1000; i++) {
+        if (utility.isPrime(i)) {
           arr.push(i);
 
+        }
       }
-  }
-  var range = 100, k = 0;
-  for (let i = 0; i < arr.length; i++) {
-      for (let j = i + 1; j < arr.length; j++) {
+      var range = 100, k = 0;
+      /**
+       * looping over the array to check the number is anagram in the rang
+       * push the number that are anagram that lies  between the range.
+       */
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
           if (utility.isAnagram(arr[i], arr[j])) {
-              if (arr[i] <= range) {
-                  if (arr[j] <= range) {
-                      array[k].push(arr[i]);
-
-                      arr2.push(arr[i])
-                      arr2.push(arr[j])
-                      array[k].push(arr[j]);
-                  }
-              } else {
-                  range = range + 100;
-                  k++;
-                  if (arr[j] <= range) {
-                      array[k].push(arr[i]);
-                      array[k].push(arr[j]);
-                  }
+            if (arr[i] <= range) {
+              if (arr[j] <= range) {
+                array[k].push(arr[i]);
+                array[k].push(arr[j]);
               }
+            } else {
+              /**
+               * if number is greater than the range then add the range with 100.
+               * and push them to array.
+               */
+              range = range + 100;
+              k++;
+              if (arr[j] <= range) {
+                array[k].push(arr[i]);
+                array[k].push(arr[j]);
+              }
+            }
           }
+        }
       }
-  }
-  console.log("The Number which are prime and anagram ");
-  var req=require('util')
-  for (let i = 0; i < array.length; i++) {
-
-      for (let j = 0; j < array[i].length; j++) {
+      console.log("The Number which are prime and anagram ");
+      var req = require('util')
+      /**
+       * looping over the array and comparing the elements to  print numbers which are anagram.
+       */
+      for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
           req.print(array[i][j]);
           if (j == 0) {
-              req.print(" => ");
+            req.print(" => ");
           } else {
-              if (j != array[i].length - 1)
-                  req.print(",")
+            if (j != array[i].length - 1)
+              req.print(",")
           }
+        }
+        console.log();
       }
-      console.log();
-  }
-  return arr2
-},
+    } catch (err) {
+      console.log(err.message);
+    }
+
+  },
 }
