@@ -6,7 +6,7 @@ var file = require('fs')
 /**
  * reading the data from the inventoryManagement.json.
  */
-var data = file.readFileSync('inventoryManagement.json');
+var data = file.readFileSync('../objectOrientedPrograms/jsonFile/inventoryManagement.json');
 /**
  * data is converted to JavaScript object.
  */

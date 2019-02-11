@@ -64,7 +64,7 @@ module.exports = {
             /**
              *  specify the format in which user has to provid input.
              */
-            var format = /a-zA-Z/;
+            var format = /[a-zA-Z]/;
             var input = "Hello <<UserName>> , How are you?";
             /**
              * replaces the <<username>> with the user input.
@@ -73,7 +73,7 @@ module.exports = {
             /**
              * conditiont to check whether the give input is in correct form.
              */
-            if (username.length >= 3 && form.test(username)) {
+            if (username.length >= 3 && format.test(username)) {
                 console.log(output);
             }
             else {
@@ -83,7 +83,7 @@ module.exports = {
         catch (err) {
             console.log(err.message);
         }
-    },
+    },  
 
     /********************************************************FlipCoin*********************************************************
     *@Purpose     :By using random function flip the coin. accept user input to flip number of times to flip coin and print the percentage of head vs tails

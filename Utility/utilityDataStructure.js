@@ -492,7 +492,6 @@ class LinkListQueue {
    * prints the data to the queue.
    */
   print() {
-
     var string = "";
     var temp = this.head;
     while (temp != null) {
