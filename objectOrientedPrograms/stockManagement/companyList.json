@@ -1,0 +1,22 @@
+{
+    "company": [
+        {
+            "name": "vrl",
+            "symbol": "v",
+            "share": 50,
+            "price": 100
+        },
+        {
+            "name": "via",
+            "symbol": "vi",
+            "share": 30,
+            "price": 200
+        },
+        {
+            "name": "srs",
+            "symbol": "s",
+            "share": 50,
+            "price": 300
+        }
+    ]
+}

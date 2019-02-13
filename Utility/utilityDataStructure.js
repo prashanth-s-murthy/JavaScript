@@ -41,7 +41,7 @@ class LinkedList {
      * initializing head to null.
      * initializing size to zero.
      */
-    this.head = null;
+    this.top = null;
     this.size = 0;
   }
   /**
@@ -50,18 +50,18 @@ class LinkedList {
    */
   add(element) {
     var node = new Node(element);
-    var current = this.head;
+    var current = this.top;
     /**
      * if head is null then create a node.
      */
-    if (this.head == null) {
-      this.head = node;
+    if (this.top == null) {
+      this.top = node;
     }
     else {
       /**
        * if the current is pointing to head 
        */
-      current = this.head;
+      current = this.top;
       /**
        * iterate till the current.next is null and add the node.
        * increment the size.
@@ -77,7 +77,7 @@ class LinkedList {
    * print the number in the list.
    */
   printList() {
-    var curr = this.head;
+    var curr = this.top;
     var str = "";
     while (curr) {
       str += curr.element + " ";
@@ -90,7 +90,7 @@ class LinkedList {
    * @param {any} element 
    */
   search(element) {
-    var temp = this.head;
+    var temp = this.top;
     /**
      * if element found it returns true.
      */
@@ -107,14 +107,14 @@ class LinkedList {
    * @param {any} element 
    */
   removeElement(element) {
-    var current = this.head;
+    var current = this.top;
     var prev = null;
 
     while (current != null) {
 
       if (current.element == element) {
         if (prev == null) {
-          this.head = current.next;
+          this.top = current.next;
         } else {
           prev.next = current.next;
         }
@@ -134,15 +134,15 @@ class LinkedList {
        */
       var node = new Node(element);
       var curr, prev;
-      curr = this.head;
+      curr = this.top;
       /**
        * add the element to the first index
        */
       if (index == 0) {
-        node.next = this.head;
-        this.head = node;
+        node.next = this.top;
+        this.top = node;
       } else {
-        curr = this.head;
+        curr = this.top;
         var it = 0;
         /**
          * iterate over the list to find the position to insert
@@ -160,6 +160,8 @@ class LinkedList {
       }
       this.size++;
     }
+
+
   }
   /**
    * To get the position of the index.
@@ -175,6 +177,47 @@ class LinkedList {
     }
     return arr.length;
   }
+
+  printShares() {
+    var arr = [];
+    if (this.top == null) {
+      return null;
+    } else {
+      var temp = this.top;
+      while (temp) {
+        arr.push(temp.data);
+        temp = temp.next;
+      }
+      return arr;
+    }
+  }
+
+  removeStock(element) {
+    var temp = this.top;
+    var prev = null;
+
+    // iterate over the list
+    while (temp != null) {
+      // comparing element & if found then remove
+      var stock = temp.data;
+      if (stock.name == element || stock.symbol == element) {
+        if (prev == null) {
+          this.top = temp.next;
+        } else {
+          prev.next = temp.next;
+        }
+        /**
+         * To decrement the size of the LinkedList
+         */
+        this.size--;
+        return temp.data;
+      }
+      prev = temp;
+      temp = temp.next;
+    }
+    return -1;
+  }
+
 }
 /*************************************Stack****************************************** */
 /**
@@ -237,6 +280,50 @@ class Stack {
       console.log(error.message);
     }
   }
+
+
+
+  printShares() {
+    var arr = [];
+    if (this.top == null) {
+      return null;
+    } else {
+      var temp = this.top;
+      while (temp) {
+        arr.push(temp.data);
+        temp = temp.next;
+      }
+      return arr;
+    }
+  }
+
+
+  removeStock(element) {
+    var temp = this.top;
+    var prev = null;
+
+    // iterate over the list
+    while (temp != null) {
+      // comparing element & if found then remove
+      var stock = temp.data;
+      if (stock.name == element || stock.symbol == element) {
+        if (prev == null) {
+          this.top = temp.next;
+        } else {
+          prev.next = temp.next;
+        }
+        /**
+         * To decrement the size of the LinkedList
+         */
+        this.size--;
+        return temp.data;
+      }
+      prev = temp;
+      temp = temp.next;
+    }
+    return -1;
+  }
+
 }
 /***************************************Queue*********************************************** */
 /**
@@ -423,6 +510,45 @@ class StackLinkedList {
     return string;
 
   }
+  printShares() {
+    var arr = [];
+    if (this.top == null) {
+      return null;
+    } else {
+      var temp = this.top;
+      while (temp) {
+        arr.push(temp.data);
+        temp = temp.next;
+      }
+      return arr;
+    }
+  }
+
+  removeStock(element) {
+    var temp = this.top;
+    var prev = null;
+
+    // iterate over the list
+    while (temp != null) {
+      // comparing element & if found then remove
+      var stock = temp.data;
+      if (stock.name == element || stock.symbol == element) {
+        if (prev == null) {
+          this.top = temp.next;
+        } else {
+          prev.next = temp.next;
+        }
+        /**
+         * To decrement the size of the LinkedList
+         */
+        this.size--;
+        return temp.data;
+      }
+      prev = temp;
+      temp = temp.next;
+    }
+    return -1;
+  }
 }
 /********************************************************************************************* */
 /**
@@ -502,6 +628,7 @@ class LinkListQueue {
     return string;
 
   }
+
 }
 
 module.exports = {

@@ -1,14 +1,18 @@
-var access=require('../Utility/utility')
-class Player{
-    constructor(cards)
-    {
-        this.cards=cards;
-    }
-    sortCards()
-    {
-        var sort=[];
-        sort=access.bubbleSortString(this.cards);
-        return sort;
-    }
+/**
+ * creating the player class.
+ */
+class Player {
+  constructor(cards) {
+    this.cards = cards;
+  }
+  /**
+   * Function to sort the cards.
+   */
+  sortCard() {
+    var sortCard = [];
+    var access = require("../Utility/utility");
+    sortCard = access.bubbleSortString(this.cards);
+    return sortCard;
+  }
 }
-module.exports={Player}
+module.exports = { Player };

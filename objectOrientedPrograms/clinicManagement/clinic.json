@@ -1,0 +1,86 @@
+{
+    "Doctor": [
+        {
+            "name": "Dr.Rajiv",
+            "Id": "doc123",
+            "specialisation": "cardiologist",
+            "availability": "AM"
+        },
+        {
+            "name": "Dr.Narayan ",
+            "Id": "doc456",
+            "specialisation": "nerologist",
+            "availability": "Both"
+        },
+        {
+            "name": "Dr.Mohan",
+            "Id": "doc789",
+            "specialisation": "Ophthalmologist ",
+            "availability": "Both"
+        },
+        {
+            "name": "Dr.Prasad",
+            "Id": "doc303",
+            "specialisation": "dynacologist",
+            "availability": "PM"
+        }
+    ],
+    "Patient": [
+        {
+            "name": "kjk",
+            "Id": "hj77",
+            "phoneNumber": 78745454554,
+            "age": 45,
+            "appointmentFrom": "Dr.Prasad",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "asd",
+            "Id": "bn557",
+            "phoneNumber": 7020111245,
+            "age": 25,
+            "appointmentFrom": "Dr.Rajivi",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "Sandeep",
+            "Id": "P002",
+            "phoneNumber": 8899662277,
+            "age": 47,
+            "appointmentFrom": "Dr.Narayan",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "kavyashree",
+            "Id": 49310,
+            "phoneNumber": 7026154214,
+            "age": 21,
+            "appointmentFrom": "Dr.Mohan",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "aish",
+            "Id": 27776,
+            "phoneNumber": 7815287548,
+            "age": 29,
+            "appointmentFrom": "Dr.Prasad ",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "karan",
+            "Id": 87734,
+            "phoneNumber": 8970253512,
+            "age": 52,
+            "appointmentFrom": "Dr.Rajiv",
+            "onTheDayOf": 28
+        },
+        {
+            "name": "ninu",
+            "Id": 76075,
+            "phoneNumber": 1232455612,
+            "age": 25,
+            "appointmentFrom": "Dr.Rajiv",
+            "onTheDayOf": 14
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "company": [
+    {
+      "name": "TATA",
+      "symbol": "T",
+      "share": 300,
+      "price": 6000
+    },
+    {
+      "name": "MARUTHI",
+      "symbol": "M",
+      "share": 254,
+      "price": 4000
+    },
+    {
+      "name": "Suzuki",
+      "symbol": "S",
+      "share": 210,
+      "price": 2000
+    }
+  ]
+}

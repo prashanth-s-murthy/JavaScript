@@ -1,3 +1,12 @@
+/**************************************************************************
+ * Execution        : Default node             cmd> node inventoryManagement.js
+ * @file            : inventoryManagement.js
+ * @overview        : Create a JSON file having Inventory Details for Rice, Pulses and Wheats
+                      with properties name, weight, price per kg.
+ * @author          : PRASHANTH S <prashanth.murthy007@gmail.com>
+ * @version         : 1.0.
+ * @since           : 12/02/2019
+ ***************************************************************************/
 /**
  * For accessing data from utility file and utilityObjectOriantedProg
  */

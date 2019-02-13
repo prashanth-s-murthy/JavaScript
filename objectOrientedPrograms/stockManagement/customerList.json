@@ -1,0 +1,27 @@
+{
+    "customer": [
+        {
+            "name": "dhoni",
+            "id": 7,
+            "share": 100,
+            "LastTransaction": "Tue Feb 12 2019 19:16:34 GMT+0530 (IST)"
+        },
+        {
+            "name": "abd",
+            "id": 10,
+            "share": 10,
+            "LastTransaction": "bb"
+        },
+        {
+            "name": "zack",
+            "id": 1,
+            "share": 12,
+            "LastTransaction": "bc"
+        },
+        {
+            "name": "raj",
+            "id": 31,
+            "share": 84
+        }
+    ]
+}

@@ -1,16 +1,18 @@
-class stock
-{
-    constructor(stockName, numberOfShare, sharePrice)
-    {
+/**
+ * creating stock class.
+ */
+class stock {
+    constructor(stockName, numberOfShare, sharePrice) {
         this.stockName = stockName;
         this.numberOfShare = numberOfShare;
         this.sharePrice = sharePrice;
     }
-
-    printValueOfStocks()
-    {
+    /**
+     * prints the total number of stocks.
+     */
+    printValueOfStocks() {
         return (this.numberOfShare * this.sharePrice);
     }
 
 }
-module.exports={stock}
+module.exports = { stock }

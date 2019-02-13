@@ -1,1 +1,19 @@
-{"Stock":[{"stockName":"c","numberOfShare":20,"sharePrice":10},{"stockName":"d","numberOfShare":20,"sharePrice":10},{"stockName":"aaaaaaaa","numberOfShare":123,"sharePrice":11}]}
+{
+    "Stock": [
+        {
+            "stockName": "c",
+            "numberOfShare": 20,
+            "sharePrice": 10
+        },
+        {
+            "stockName": "d",
+            "numberOfShare": 20,
+            "sharePrice": 10
+        },
+        {
+            "stockName": "aaaaaaaa",
+            "numberOfShare": 123,
+            "sharePrice": 11
+        }
+    ]
+}

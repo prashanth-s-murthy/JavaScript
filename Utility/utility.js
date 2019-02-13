@@ -83,7 +83,7 @@ module.exports = {
         catch (err) {
             console.log(err.message);
         }
-    },  
+    },
 
     /********************************************************FlipCoin*********************************************************
     *@Purpose     :By using random function flip the coin. accept user input to flip number of times to flip coin and print the percentage of head vs tails
@@ -948,7 +948,8 @@ module.exports = {
                         arr[j] = temp;
                     }
                 }
-            } console.log(arr);
+            } //console.log(arr);
+            return arr;
         }
         catch (err) {
             console.log(err.message);
